@@ -1,37 +1,249 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name · Frontend Dev｜個人品牌網站</title>
+  <meta name="description" content="這是用來介紹個人背景、技能、作品集與聯絡方式的網站，適合前端工程師建立個人品牌。">
   <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; max-width: 100%; }
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", Arial, sans-serif; line-height: 1.6; }
-    img { max-width: 100%; height: auto; display: block; }
-    .container { width: 1920px; margin: 0 auto; padding: 16px; }
-    nav a { margin-right: 12px; text-decoration: none; }
-    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
-    .col-12 { grid-column: span 12; }
-    @media (min-width: 768px) { .col-md-6 { grid-column: span 6; } }
-    .card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+    /* CSS:BASE-START */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #0f172a;
+      color: #f1f5f9;
+      line-height: 1.6;
+    }
+    .page {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 960px;
+      padding: 1rem;
+      margin: 0 auto;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    /* CSS:BASE-END */
+
+    /* CSS:HERO-START */
+    .section-hero {
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+    .section-hero h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #38bdf8;
+    }
+    .section-hero p {
+      margin-bottom: 1rem;
+    }
+    /* CSS:HERO-END */
+
+    /* CSS:ABOUT-START */
+    .section-about {
+      padding: 3rem 1rem;
+    }
+    .section-about .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #38bdf8;
+    }
+    /* CSS:ABOUT-END */
+
+    /* CSS:SKILLS-START */
+    .section-skills {
+      padding: 3rem 1rem;
+    }
+    .section-skills .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #38bdf8;
+    }
+    /* CSS:SKILLS-END */
+
+    /* CSS:PROJECTS-START */
+    .section-projects {
+      padding: 3rem 1rem;
+    }
+    .section-projects .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #38bdf8;
+    }
+    /* CSS:PROJECTS-END */
+
+    /* CSS:CONTACT-START */
+    .section-contact {
+      padding: 3rem 1rem;
+    }
+    .section-contact .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #38bdf8;
+    }
+    /* CSS:CONTACT-END */
+
+    /* CSS:RWD-START */
+    @media (min-width: 768px) {
+      .section-about .container,
+      .section-projects .container {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+      }
+      .section-about .container > *:first-child,
+      .section-projects .container > *:first-child {
+        flex: 1;
+      }
+      .section-about .container > *:last-child,
+      .section-projects .container > *:last-child {
+        flex: 1;
+      }
+    }
+    /* CSS:RWD-END */
+
+    .site-header {
+      background-color: #1e293b;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+    }
+    .nav-logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #f1f5f9;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    .nav-link {
+      color: #f1f5f9;
+      font-weight: 500;
+    }
+    .nav-link:hover {
+      color: #38bdf8;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.875rem;
+      background-color: #1e293b;
+      color: #94a3b8;
+    }
   </style>
 </head>
 <body>
-  <header class="container" role="banner">
-    <nav aria-label="主選單">
-      <a href="#about">關於我</a>
-      <a href="#projects">作品集</a>
-      <a href="https://example.com/blog">技術部落格</a>
-      <a href="mailto:me@example.com">聯絡我</a>
-    </nav>
-    <h1>你好，我是小明：前端工程師新手之路</h1>
-    <h1>你好，我是小明：前端工程師新手之路</h1>
-    <p>歡迎來到我的個人網站！這裡整理了學習紀錄、Side Project 與實作心得。</p>
-  </header>
+  <div class="page">
+    <header class="site-header">
+      <nav class="nav container">
+        <div class="nav-logo">Your Name · Frontend Dev</div>
+        <div class="nav-links">
+          <a href="#hero" class="nav-link">首頁</a>
+          <a href="#about" class="nav-link">關於我</a>
+          <a href="#skills" class="nav-link">技能</a>
+          <a href="#projects" class="nav-link">作品集</a>
+          <a href="#contact" class="nav-link">聯絡我</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <!-- SECTION:HERO-START -->
+      <section id="hero" class="section section-hero">
+        <div class="container">
+          <h1>你好，我是 Your Name，一位熱愛打造使用者體驗的前端工程師</h1>
+          <p>我專注於使用 HTML、CSS、JavaScript 建構高效、響應式的網頁介面，並持續學習新技術提升開發品質。</p>
+          <p>歡迎瀏覽我的作品集，或下載履歷了解更多。</p>
+          <img src="https://cdn.pixabay.com/photo/2017/08/10/03/29/laptop-2616822_1280.jpg" alt="科技感筆電與程式畫面" loading="lazy">
+        </div>
+      </section>
+      <!-- SECTION:HERO-END -->
 
-  <footer class="container" role="contentinfo">
-    <p>© 2025 My Portfolio · <a href="#">GitHub</a></p>
-    <img src="https://source.unsplash.com/600x200/?technology,abstract" alt="">
-  </footer>
+      <!-- SECTION:ABOUT-START -->
+      <section id="about" class="section section-about" aria-labelledby="about-heading">
+        <div class="container">
+          <div>
+            <h2 id="about-heading" class="section-title">關於我</h2>
+            <p>我擁有 5 年以上前端開發經驗，擅長切版、互動設計與跨瀏覽器相容性處理。</p>
+            <p>曾參與過大型專案，與設計師、後端工程師密切合作，推動產品落地與優化。</p>
+          </div>
+          <div>
+            <img src="https://cdn.pixabay.com/photo/2015/01/08/18/25/startup-593327_1280.jpg" alt="開發者的辦公桌與筆電工作環境" loading="lazy">
+          </div>
+        </div>
+      </section>
+      <!-- SECTION:ABOUT-END -->
+
+      <!-- SECTION:SKILLS-START -->
+      <section id="skills" class="section section-skills" aria-labelledby="skills-heading">
+        <div class="container">
+          <h2 id="skills-heading" class="section-title">技能</h2>
+          <p>熟悉技術包含：HTML5、CSS3、JavaScript、React、Vue、Git、Webpack、RWD 設計。</p>
+          <p>具備良好團隊協作能力，能撰寫可維護的程式碼並進行 code review。</p>
+          <img src="https://cdn.pixabay.com/photo/2015/05/12/09/13/code-763512_1280.jpg" alt="程式碼畫面與技能圖示" loading="lazy">
+        </div>
+      </section>
+      <!-- SECTION:SKILLS-END -->
+
+      <!-- SECTION:PROJECTS-START -->
+      <section id="projects" class="section section-projects" aria-labelledby="projects-heading">
+        <div class="container">
+          <div>
+            <h2 id="projects-heading" class="section-title">作品集</h2>
+            <p>以下是我參與與製作的專案，包括企業官網、電商平台、互動式活動頁面等。</p>
+            <p>每個作品都展現了我在 UI 設計、效能優化與技術整合上的能力。</p>
+          </div>
+          <div>
+            <img src="https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_1280.jpg" alt="展示網站作品的科技感儀表板畫面" loading="lazy">
+          </div>
+        </div>
+      </section>
+      <!-- SECTION:PROJECTS-END -->
+
+      <!-- SECTION:CONTACT-START -->
+      <section id="contact" class="section section-contact" aria-labelledby="contact-heading">
+        <div class="container">
+          <h2 id="contact-heading" class="section-title">聯絡我</h2>
+          <p>如果你對我的作品或技能有興趣，歡迎透過以下方式聯絡我。</p>
+          <p>我會盡快回覆你的訊息，期待與你合作或交流。</p>
+          <ul>
+            <li>Email：<a href="mailto:hello@example.com">hello@example.com</a></li>
+            <li>電話：<a href="tel:+886900000000">+886 900 000 000</a></li>
+            <li>GitHub：<a href="https://github.com/yourname" target="_blank">github.com/yourname</a></li>
+            <li>LinkedIn：<a href="https://www.linkedin.com/in/yourname" target="_blank">linkedin.com/in/yourname</a></li>
+          </ul>
+          <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/contact-us-1959321_1280.jpg" alt="科技感的通訊介面與聯絡方式示意圖" loading="lazy">
+        </div>
+      </section>
+      <!-- SECTION:CONTACT-END -->
+    </main>
+    <footer>
+      &copy; 2025 Your Name · Frontend Dev. 保留所有權利。
+    </footer>
+  </div>
 </body>
 </html>
